@@ -1,13 +1,18 @@
 \documentclass[12pt]{article}
-\usepackage{amsmath, amssymb, amsthm,qcircuit,multicol}
+\usepackage{amsmath, amssymb, amsthm,qcircuit,multicol,mathtools}
 
-
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \renewcommand{\>}{\rangle}
 \newcommand{\<}{\langle}
 \newcommand{\cL}{\mathcal{L}}
 \newcommand{\cH}{\mathcal{H}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\tr}{\mathrm{Tr}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
 
 \setlength{\marginparwidth}{0pt} \setlength{\hoffset}{0cm}
 \setlength{\oddsidemargin}{0pt} \setlength{\topmargin}{1cm}
@@ -225,6 +230,71 @@ i & -i \\
 \]
 \newpage
 2. Check if mutually unbiased
+\\
+Normalized eigenbases:
+\[ \beta_x = 
+\lbrace\,
+\frac{1}{\sqrt{2}}
+\left( 
+|0\> + |1\>
+\right)\, , \, 
+\frac{1}{\sqrt{2}}
+\left( 
+|0\> - |1\>
+\right)\,
+\rbrace
+\]
+\[ \beta_y = 
+\lbrace\,
+\frac{1}{\sqrt{2}}
+\left( 
+i|0\> + |1\>
+\right)\, , \, 
+\frac{1}{\sqrt{2}}
+\left( 
+-i|0\> - |1\>
+\right)\,
+\rbrace
+\]
+\[ \beta_z = 
+\lbrace\,
+|0\>
+\, , \, 
+|1\>
+\,
+\rbrace
+\]
+\\
+$i = 1, j = 1 $
+\[
+\abs{ \ \frac{1}{\sqrt{2}}\<\ (|0\>+|1\>)\ |\ \frac{1}{\sqrt{2}} \ (i|0\> + |1\>)\ \>\ } ^{2} \  = 
+\]
+\[	
+= \abs{
+\left[
+\begin{array}{cc}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+\frac{i}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+\end{array}
+\right]
+}^2
+\]
+\[
+= abs{
+\frac{i}{2}+ \frac{1}{2}
+}^2
+\]
+\[
+ = \sqrt{(\frac{1}{2} + \frac{i}{2}) (\frac{1}{2}-\frac{i}{2})}^2
+\]
+\[	(\frac{1}{2} + \frac{i}{2}) (\frac{1}{2}-\frac{i}{2})\]
+\[= \frac{1}{4} + \frac{1}{4}	= \frac{1}{2}\]
+
+Repeating that calculationg fo rthe pther combinations we find that each one results in a value of $\frac{1}{2}$, meaning that the eigenbases of the Pauli operators are mutually unbiased.
 
 \newpage
 
